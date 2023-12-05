@@ -147,7 +147,7 @@ int main()
 			inTraverse_btree(BTree);
 			printf_s("\n");
 
-			printf_s("先序遍历二叉树：");
+			printf_s("后序遍历二叉树：");
 			postTraverse_btree(BTree);
 			printf_s("\n");
 

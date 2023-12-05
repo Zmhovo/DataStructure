@@ -21,7 +21,7 @@ PBTNODE create_btree(PBTNODE BTree)
 {
 	if (BTree->i_data == NULL)
 	{
-		printf_s("请输入该结点的数据：");
+		printf_s("请输入根结点的数据：");
 		scanf_s("%d", &BTree->i_data);
 	}
 

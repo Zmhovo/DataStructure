@@ -27,7 +27,7 @@ PBTNODE create_btree(PBTNODE BTree)
 
 	int temp = 0;
 
-	chooseL:
+chooseL:
 	printf_s("是否创建左孩子结点(1.是；2.否)：");
 	scanf_s("%d", &temp);
 	switch (temp)
@@ -61,7 +61,7 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 	}
 
-	chooseR:
+chooseR:
 	printf_s("是否创建右孩子结点(1.是；2.否)：");
 	scanf_s("%d", &temp);
 	switch (temp)
@@ -161,7 +161,7 @@ void postTraverse_btree(PBTNODE BTree)
 		{
 			postTraverse_btree(BTree->pRchild);
 		}
-
+		
 		printf_s("%d ", BTree->i_data);
 	}
 }

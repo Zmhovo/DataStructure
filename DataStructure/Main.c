@@ -4,13 +4,14 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "Tree.h"
+#include "Sort.h"
 
 int main()
 {
 	int function = 0;
 
-	chooseMain:
-	printf_s("1.数组；2.链表；3.栈；4.队；5.树\n输入序号选择数据结构功能：");
+chooseMain:
+	printf_s("1.数组；2.链表；3.栈；4.队；5.树；6.排序\n输入序号选择数据结构功能：");
 	scanf_s("%d", &function);
 
 	switch (function)
@@ -153,6 +154,46 @@ int main()
 
 			break;
 		}
+
+		case 6:
+		{
+			int len = 0;
+			int* array = create_array(&len);
+			int choose_sort = 0;
+		chooseSort:
+			
+			printf_s("1.冒泡排序；2.选择排序；3.插入排序；\n输入序号选择数据结构功能：");
+			scanf_s("%d", &choose_sort);
+
+			switch (choose_sort)
+			{
+				case 1:
+				{
+					bubble_sort(array, &len);
+					break;
+				}
+				case 2:
+				{
+					selection_sort(array, &len);
+					break;
+				}
+				case 3:
+				{
+					insertion_sort(array, &len);
+					break;
+				}
+				default:
+				{
+					printf_s("输入序号错误！\n");
+					goto chooseSort;
+					break;
+				}
+			}
+				
+
+			break;
+		}
+
 		default:
 		{
 			printf_s("输入序号错误！\n");

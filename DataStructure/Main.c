@@ -137,6 +137,10 @@ int main()
 			init_btree(BTree);
 			BTree = create_btree(BTree);
 
+			printf_s("ÏÈĞò±éÀú¶ş²æÊ÷£º");
+			preTraverse_btree(BTree);
+			printf_s("\n");
+
 			break;
 		}
 		default:

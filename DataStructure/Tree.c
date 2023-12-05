@@ -53,7 +53,7 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 	default:
 	{
-		printf_s("ÊäÈëÐòºÅ´íÎó£¡");
+		printf_s("ÊäÈëÐòºÅ´íÎó£¡\n");
 		break;
 	}
 	}
@@ -87,7 +87,7 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 	default:
 	{
-		printf_s("ÊäÈëÐòºÅ´íÎó£¡");
+		printf_s("ÊäÈëÐòºÅ´íÎó£¡\n");
 		break;
 	}
 	}
@@ -104,4 +104,22 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 
     return BTree;
+}
+
+void preTraverse_btree(PBTNODE BTree)
+{
+	if(BTree != NULL)
+	{
+		printf_s("%d ", BTree->i_data);
+		if (BTree->pLchild != NULL)
+		{
+			preTraverse_btree(BTree->pLchild);
+		}
+		if (BTree->pRchild != NULL)
+		{
+			preTraverse_btree(BTree->pRchild);
+		}
+	}
+
+	return;
 }

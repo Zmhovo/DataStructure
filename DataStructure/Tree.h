@@ -12,9 +12,14 @@ typedef struct BTNode
 	struct BTNode* pRchild;
 }BTNODE, * PBTNODE;
 
-void init_btree(PBTNODE BTree);          //³õÊ¼»¯
+void init_btree(PBTNODE BTree);          //Â³ÃµÃŠÂ¼Â»Â¯
 
-PBTNODE create_btree(PBTNODE BTree);          //´´½¨¶ş²æÊ÷
+PBTNODE create_btree(PBTNODE BTree);          //Â´Â´Â½Â¨Â¶Ã¾Â²Ã¦ÃŠÃ·
 
-void preTraverse_btree(PBTNODE BTree);          //ÏÈĞò±éÀú
+void preTraverse_btree(PBTNODE BTree);          //ÃÃˆÃÃ²Â±Ã©Ã€Ãº
+
+void inTraverse_btree(PBTNODE BTree);          //Ã–ÃÃÃ²Â±Ã©Ã€Ãº
+
+void postTraverse_btree(PBTNODE BTree);          //ÂºÃ³ÃÃ²Â±Ã©Ã€Ãº
+
 #endif //! __TREE_H__

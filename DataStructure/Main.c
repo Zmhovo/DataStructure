@@ -4,21 +4,26 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "Tree.h"
+#include "Sort.h"
+
 
 int main()
 {
 	int function = 0;
-	printf_s("1.Êı×é£»2.Á´±í£»3.Õ»£»4.¶Ó£»5.Ê÷\nÊäÈëĞòºÅÑ¡ÔñÊı¾İ½á¹¹¹¦ÄÜ£º");
+  
+chooseMain:
+	printf_s("1.æ•°ç»„ï¼›2.é“¾è¡¨ï¼›3.æ ˆï¼›4.é˜Ÿï¼›5.æ ‘ï¼›6.æ’åº\nè¾“å…¥åºå·é€‰æ‹©æ•°æ®ç»“æ„åŠŸèƒ½ï¼š");
+
 	scanf_s("%d", &function);
 
 	switch (function)
 	{
-		case 1:          //1.Êı×é
+		case 1:          //1.æ•°ç»„
 		{
 			ARR arr;
 			int len = 0;
 
-			printf_s("ĞÂ½¨Êı×éµÄ³¤¶È:");
+			printf_s("æ–°å»ºæ•°ç»„çš„é•¿åº¦:");
 			scanf_s("%d", &len);
 
 			init_arr(&arr, len);
@@ -59,7 +64,7 @@ int main()
 			break;
 		}
 
-		case 2:          //2.Á´±í
+		case 2:          //2.é“¾è¡¨
 		{
 			PLINKNODE pHead = create_link();
 			int len = 0;
@@ -67,7 +72,7 @@ int main()
 			show_link(pHead);
 
 			len = length_link(pHead);
-			printf_s("Á´±í³¤¶È£º%d\n", len);
+			printf_s("é“¾è¡¨é•¿åº¦ï¼š%d\n", len);
 
 			sort_link(pHead);
 			
@@ -84,7 +89,7 @@ int main()
 			break;
 		}
 
-		case 3:          //3.Õ»
+		case 3:          //3.æ ˆ
 		{
 			STACK stack;
 			init_stack(&stack);
@@ -110,7 +115,7 @@ int main()
 			break;
 		}
 
-		case 4:          //4.¶Ó
+		case 4:          //4.é˜Ÿ
 		{
 			CIRCULARQUEUE queue;
 			init_queue(&queue);
@@ -137,15 +142,64 @@ int main()
 			init_btree(BTree);
 			BTree = create_btree(BTree);
 
-			printf_s("ÏÈĞò±éÀú¶ş²æÊ÷£º");
+			printf_s("å…ˆåºéå†äºŒå‰æ ‘ï¼š");
 			preTraverse_btree(BTree);
+			printf_s("\n");
+
+			printf_s("ä¸­åºéå†äºŒå‰æ ‘ï¼š");
+			inTraverse_btree(BTree);
+			printf_s("\n");
+
+			printf_s("ååºéå†äºŒå‰æ ‘ï¼š");
+			postTraverse_btree(BTree);
 			printf_s("\n");
 
 			break;
 		}
+
+		case 6:
+		{
+			int len = 0;
+			int* array = create_array(&len);
+			int choose_sort = 0;
+		chooseSort:
+			
+			printf_s("1.å†’æ³¡æ’åºï¼›2.é€‰æ‹©æ’åºï¼›3.æ’å…¥æ’åºï¼›\nè¾“å…¥åºå·é€‰æ‹©æ•°æ®ç»“æ„åŠŸèƒ½ï¼š");
+			scanf_s("%d", &choose_sort);
+
+			switch (choose_sort)
+			{
+				case 1:
+				{
+					bubble_sort(array, &len);
+					break;
+				}
+				case 2:
+				{
+					selection_sort(array, &len);
+					break;
+				}
+				case 3:
+				{
+					insertion_sort(array, &len);
+					break;
+				}
+				default:
+				{
+					printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
+					goto chooseSort;
+					break;
+				}
+			}
+				
+
+			break;
+		}
+
 		default:
 		{
-			printf_s("ÊäÈëĞòºÅ´íÎó£¡");
+			printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
+			goto chooseMain;
 			break; 
 		}
 

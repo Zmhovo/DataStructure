@@ -4,7 +4,7 @@ void init_btree(PBTNODE BTree)
 {
 	if (NULL == BTree)
 	{
-		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 		exit(-1);
 	}
 	else 
@@ -21,12 +21,14 @@ PBTNODE create_btree(PBTNODE BTree)
 {
 	if (BTree->i_data == NULL)
 	{
-		printf_s("ÇëÊäÈë¸Ã½áµãµÄÊı¾İ£º");
+		printf_s("è¯·è¾“å…¥è¯¥ç»“ç‚¹çš„æ•°æ®ï¼š");
 		scanf_s("%d", &BTree->i_data);
 	}
 
 	int temp = 0;
-	printf_s("ÊÇ·ñ´´½¨×óº¢×Ó½áµã(1.ÊÇ£»2.·ñ)£º");
+
+chooseL:
+	printf_s("æ˜¯å¦åˆ›å»ºå·¦å­©å­ç»“ç‚¹(1.æ˜¯ï¼›2.å¦)ï¼š");
 	scanf_s("%d", &temp);
 	switch (temp)
 	{
@@ -35,12 +37,12 @@ PBTNODE create_btree(PBTNODE BTree)
 		BTree->pLchild = (PBTNODE)malloc(sizeof(BTNODE));
 		if (NULL == BTree->pLchild)
 		{
-			printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+			printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 			exit(-1);
 		}
 		else
 		{
-			printf_s("ÇëÊäÈë×óº¢×Ó½áµãµÄÊı¾İ£º");
+			printf_s("è¯·è¾“å…¥å·¦å­©å­ç»“ç‚¹çš„æ•°æ®ï¼š");
 			scanf_s("%d", &(BTree->pLchild->i_data));
 		}
 		break;
@@ -53,13 +55,14 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 	default:
 	{
-		printf_s("ÊäÈëĞòºÅ´íÎó£¡\n");
+		printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
+		goto chooseL;
 		break;
 	}
 	}
 
-
-	printf_s("ÊÇ·ñ´´½¨ÓÒº¢×Ó½áµã(1.ÊÇ£»2.·ñ)£º");
+chooseR:
+	printf_s("æ˜¯å¦åˆ›å»ºå³å­©å­ç»“ç‚¹(1.æ˜¯ï¼›2.å¦)ï¼š");
 	scanf_s("%d", &temp);
 	switch (temp)
 	{
@@ -68,12 +71,12 @@ PBTNODE create_btree(PBTNODE BTree)
 		BTree->pRchild = (PBTNODE)malloc(sizeof(BTNODE));
 		if (NULL == BTree->pRchild)
 		{
-			printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+			printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 			exit(-1);
 		}
 		else
 		{
-			printf_s("ÇëÊäÈëÓÒº¢×Ó½áµãµÄÊı¾İ£º");
+			printf_s("è¯·è¾“å…¥å³å­©å­ç»“ç‚¹çš„æ•°æ®ï¼š");
 			scanf_s("%d", &(BTree->pRchild->i_data));
 		}
 
@@ -87,19 +90,20 @@ PBTNODE create_btree(PBTNODE BTree)
 	}
 	default:
 	{
-		printf_s("ÊäÈëĞòºÅ´íÎó£¡\n");
+		printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
+		goto chooseR;
 		break;
 	}
 	}
 
 	if (BTree->pLchild != NULL) 
 	{
-		printf_s("×ªµ½½áµã¡°%d¡±µÄ×óº¢×Ó½áµã¡°%d¡±£º\n",BTree->i_data,BTree->pLchild->i_data);
+		printf_s("è½¬åˆ°ç»“ç‚¹â€œ%dâ€çš„å·¦å­©å­ç»“ç‚¹â€œ%dâ€ï¼š\n",BTree->i_data,BTree->pLchild->i_data);
 		create_btree(BTree->pLchild);
 	}
 	if (BTree->pRchild != NULL)
 	{
-		printf_s("×ªµ½½áµã¡°%d¡±µÄÓÒº¢×Ó½áµã¡°%d¡±£º\n", BTree->i_data, BTree->pRchild->i_data);
+		printf_s("è½¬åˆ°ç»“ç‚¹â€œ%dâ€çš„å³å­©å­ç»“ç‚¹â€œ%dâ€ï¼š\n", BTree->i_data, BTree->pRchild->i_data);
 		create_btree(BTree->pRchild);
 	}
 
@@ -122,4 +126,42 @@ void preTraverse_btree(PBTNODE BTree)
 	}
 
 	return;
+}
+
+void inTraverse_btree(PBTNODE BTree)
+{
+	if (BTree != NULL)
+	{
+		if (BTree->pLchild != NULL)
+		{
+			inTraverse_btree(BTree->pLchild);
+		}
+
+		printf_s("%d ", BTree->i_data);
+		
+		if (BTree->pRchild != NULL)
+		{
+			inTraverse_btree(BTree->pRchild);
+		}
+	}
+
+	return;
+}
+
+void postTraverse_btree(PBTNODE BTree)
+{
+	if (BTree != NULL)
+	{
+		if (BTree->pLchild != NULL)
+		{
+			postTraverse_btree(BTree->pLchild);
+		}
+
+		if (BTree->pRchild != NULL)
+		{
+			postTraverse_btree(BTree->pRchild);
+		}
+		
+		printf_s("%d ", BTree->i_data);
+	}
 }

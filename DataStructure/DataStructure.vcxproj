@@ -22,6 +22,7 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="Link.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Sort.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
@@ -30,6 +31,7 @@
     <ClCompile Include="Link.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="Queue.c" />
+    <ClCompile Include="Sort.c" />
     <ClCompile Include="Stack.c" />
     <ClCompile Include="Tree.c" />
   </ItemGroup>

@@ -8,6 +8,8 @@
 int main()
 {
 	int function = 0;
+
+	chooseMain:
 	printf_s("1.数组；2.链表；3.栈；4.队；5.树\n输入序号选择数据结构功能：");
 	scanf_s("%d", &function);
 
@@ -137,11 +139,24 @@ int main()
 			init_btree(BTree);
 			BTree = create_btree(BTree);
 
+			printf_s("先序遍历二叉树：");
+			preTraverse_btree(BTree);
+			printf_s("\n");
+
+			printf_s("中序遍历二叉树：");
+			inTraverse_btree(BTree);
+			printf_s("\n");
+
+			printf_s("先序遍历二叉树：");
+			postTraverse_btree(BTree);
+			printf_s("\n");
+
 			break;
 		}
 		default:
 		{
-			printf_s("输入序号错误！");
+			printf_s("输入序号错误！\n");
+			goto chooseMain;
 			break; 
 		}
 

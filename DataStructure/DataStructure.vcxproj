@@ -31,6 +31,7 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="Queue.c" />
     <ClCompile Include="Stack.c" />
+    <ClCompile Include="Tree.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

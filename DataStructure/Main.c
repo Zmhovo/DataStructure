@@ -3,11 +3,12 @@
 #include "Link.h"
 #include "Stack.h"
 #include "Queue.h"
+#include "Tree.h"
 
 int main()
 {
 	int function = 0;
-	printf_s("1.数组；2.链表；3.栈；4.队\n输入序号选择数据结构功能：");
+	printf_s("1.数组；2.链表；3.栈；4.队；5.树\n输入序号选择数据结构功能：");
 	scanf_s("%d", &function);
 
 	switch (function)
@@ -130,6 +131,14 @@ int main()
 			break;
 		}
 
+		case 5:
+		{
+			PBTNODE BTree = (PBTNODE)malloc(sizeof(BTNODE));
+			init_btree(BTree);
+			BTree = create_btree(BTree);
+
+			break;
+		}
 		default:
 		{
 			printf_s("输入序号错误！");

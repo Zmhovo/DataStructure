@@ -1,4 +1,4 @@
-ï»¿#ifndef __TREE_H__
+#ifndef __TREE_H__
 #define __TREE_H__
 
 #include <stdio.h>
@@ -12,13 +12,13 @@ typedef struct BTNode
 	struct BTNode* pRchild;
 }BTNODE, * PBTNODE;
 
-void init_btree(PBTNODE BTree);          //åˆå§‹åŒ–
+void init_btree(PBTNODE BTree);          //³õÊ¼»¯
 
-PBTNODE create_btree(PBTNODE BTree);          //åˆ›å»ºäºŒå‰æ ‘
+PBTNODE create_btree(PBTNODE BTree);          //´´½¨¶ş²æÊ÷
 
-void preTraverse_btree(PBTNODE BTree);          //å…ˆåºéå†
+void preTraverse_btree(PBTNODE BTree);          //ÏÈĞò±éÀú
 
-void inTraverse_btree(PBTNODE BTree);          //ä¸­åºéå†
+void inTraverse_btree(PBTNODE BTree);          //ÖĞĞò±éÀú
 
-void postTraverse_btree(PBTNODE BTree);          //ååºéå†
+void postTraverse_btree(PBTNODE BTree);          //ºóĞò±éÀú
 #endif //! __TREE_H__

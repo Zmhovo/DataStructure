@@ -1,4 +1,4 @@
-О╩©#ifndef __QUEUE_H__
+#ifndef __QUEUE_H__
 #define __QUEUE_H__
 
 #include <stdio.h>
@@ -12,28 +12,28 @@ typedef struct QueueNode
 	struct QueueNode* pNext;
 }QUEUENODE, * PQUEUENODE;
 
-typedef struct LinkQueue          //Е┼╗Ф─│И≤÷Е┬≈
+typedef struct LinkQueue          //╤╞л╛╤сап
 {
-	PQUEUENODE pFront;          //И≤÷Е╓╢
-	PQUEUENODE pRear;          //И≤÷Е╟╬
+	PQUEUENODE pFront;          //╤см╥
+	PQUEUENODE pRear;          //╤сн╡
 }LINKQUEUE, * PLINKQUEUE;
 
-typedef struct CircularQueue          //И²≥Ф─│И≤÷Е┬≈(Е╬╙Г▌╞И≤÷Е┬≈)
+typedef struct CircularQueue          //╬╡л╛╤сап(я╜╩╥╤сап)
 {
-	int* pBase;          //И≤÷Е┬≈Е°╟Е²─
-	int front;          //И≤÷Е╓╢
-	int rear;          //И≤÷Е╟╬
-	int len;          //И≤÷Е┬≈И∙©Е╨╕
+	int* pBase;          //╤сап╣ьж╥
+	int front;          //╤см╥
+	int rear;          //╤сн╡
+	int len;          //╤сапЁ╓╤х
 }CIRCULARQUEUE, * PCIRCULARQUEUE;
 
-void init_queue(PCIRCULARQUEUE pQueue);          //Е┬²Е╖▀Е▄√
+void init_queue(PCIRCULARQUEUE pQueue);          //ЁУй╪╩╞
 
-bool queue_is_full(PCIRCULARQUEUE pQueue);          //Д╦╨Ф╩║
-bool queue_is_empty(PCIRCULARQUEUE pQueue);          //Д╦╨Г╘╨
+bool queue_is_full(PCIRCULARQUEUE pQueue);          //н╙бЗ
+bool queue_is_empty(PCIRCULARQUEUE pQueue);          //н╙©у
 
-bool push_queue(PCIRCULARQUEUE pQueue, int val);          //Е┘╔И≤÷
+bool push_queue(PCIRCULARQUEUE pQueue, int val);          //хК╤с
 
-bool pop_queue(PCIRCULARQUEUE pQueue);          //Е┤╨И≤÷
-void show_queue(PCIRCULARQUEUE pQueue);          //Ф≤╬Г╓╨
+bool pop_queue(PCIRCULARQUEUE pQueue);          //ЁЖ╤с
+void show_queue(PCIRCULARQUEUE pQueue);          //отй╬
 
 #endif //! __STACK_H__

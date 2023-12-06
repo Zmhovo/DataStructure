@@ -1,12 +1,12 @@
-ï»¿#include "Array.h"
+#include "Array.h"
 
 void init_arr(PARR pArr,int length)
 {
-    pArr->pBase = (int*)malloc(sizeof(int) * length);          //åŠ¨æ€åˆ†é…å†…å­˜
+    pArr->pBase = (int*)malloc(sizeof(int) * length);          //¶¯Ì¬·ÖÅäÄÚ´æ
 
     if (NULL == pArr->pBase)
     {
-        printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+        printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
         exit(-1);
     }
     else 
@@ -20,18 +20,18 @@ void init_arr(PARR pArr,int length)
 
 bool append_arr(PARR pArr, int val)
 {
-    if (arr_is_full(pArr))          //æ•°ç»„ä¸ºæ»¡
+    if (arr_is_full(pArr))          //Êı×éÎªÂú
     {
-        printf_s("æ•°ç»„ä¸ºæ»¡,è¿½åŠ æ•°æ®â€œ%dâ€å¤±è´¥ï¼\n",val);
+        printf_s("Êı×éÎªÂú,×·¼ÓÊı¾İ¡°%d¡±Ê§°Ü£¡\n",val);
         
         return false;
     }
-    else           //æ•°ç»„æœªæ»¡
+    else           //Êı×éÎ´Âú
     {
         pArr->pBase[pArr->cnt] = val;
-        (pArr->cnt)++;          //æœ‰æ•ˆé•¿åº¦è¿›ä¸€
+        (pArr->cnt)++;          //ÓĞĞ§³¤¶È½øÒ»
         
-        printf_s("è¿½åŠ æ•°æ®â€œ%dâ€æˆåŠŸï¼\n", val);
+        printf_s("×·¼ÓÊı¾İ¡°%d¡±³É¹¦£¡\n", val);
 
         return true;
     }
@@ -41,25 +41,25 @@ bool insert_arr(PARR pArr, int pos, int val)
 {
     if (pos < 1 || pos > pArr->cnt + 1)
     {
-        printf_s("æ’å…¥å¤±è´¥ï¼šæ’å…¥ä½ç½®éæ³•ï¼Œè¯·é‡æ–°è¾“å…¥0~%då†…æ•´æ•°ã€‚\n", pArr->cnt + 1);
+        printf_s("²åÈëÊ§°Ü£º²åÈëÎ»ÖÃ·Ç·¨£¬ÇëÖØĞÂÊäÈë0~%dÄÚÕûÊı¡£\n", pArr->cnt + 1);
         return false;
     }
     else if (arr_is_full(pArr))
     {
-        printf_s("æ’å…¥å¤±è´¥ï¼šæ•°ç»„ä¸ºæ»¡ã€‚\n");
+        printf_s("²åÈëÊ§°Ü£ºÊı×éÎªÂú¡£\n");
         return false;
     }
     else
     {
-        for (int i = pArr->cnt - 1; i >= pos - 1; i--)          //æ•°ç»„ç¬¬posä¸ªå…ƒç´ åç§»ä¸€ä½
+        for (int i = pArr->cnt - 1; i >= pos - 1; i--)          //Êı×éµÚpos¸öÔªËØºóÒÆÒ»Î»
         {
             pArr->pBase[i + 1] = pArr->pBase[i];
         }
 
-        pArr->pBase[pos - 1] = val;          //æ’å…¥valåˆ°æ•°ç»„ç¬¬posä¸ªä½ç½®
-        (pArr->cnt)++;          //æœ‰æ•ˆé•¿åº¦è¿›ä¸€
+        pArr->pBase[pos - 1] = val;          //²åÈëvalµ½Êı×éµÚpos¸öÎ»ÖÃ
+        (pArr->cnt)++;          //ÓĞĞ§³¤¶È½øÒ»
 
-        printf_s("æ’å…¥æˆåŠŸï¼šæ’å…¥â€œ%dâ€ä¸ºæ•°ç»„ç¬¬%dä¸ªå…ƒç´ ã€‚\n", val, pos);
+        printf_s("²åÈë³É¹¦£º²åÈë¡°%d¡±ÎªÊı×éµÚ%d¸öÔªËØ¡£\n", val, pos);
 
         return true;
     }
@@ -69,17 +69,17 @@ bool delect_arr(PARR pArr, int pos)
 {
     if (pos < 1 || pos > pArr->cnt)
     {
-        printf_s("åˆ é™¤å¤±è´¥ï¼šåˆ é™¤ä½ç½®éæ³•ï¼Œè¯·é‡æ–°è¾“å…¥0~%då†…æ•´æ•°ã€‚\n", pArr->cnt);
+        printf_s("É¾³ıÊ§°Ü£ºÉ¾³ıÎ»ÖÃ·Ç·¨£¬ÇëÖØĞÂÊäÈë0~%dÄÚÕûÊı¡£\n", pArr->cnt);
         return false;
     }
     else if (arr_is_empty(pArr)) 
     {
-        printf_s("åˆ é™¤å¤±è´¥ï¼šæ•°ç»„ä¸ºç©ºã€‚\n");
+        printf_s("É¾³ıÊ§°Ü£ºÊı×éÎª¿Õ¡£\n");
         return false;
     }
     else
     {
-        printf_s("åˆ é™¤æˆåŠŸï¼šåˆ é™¤æ•°ç»„ç¬¬%dä¸ªå…ƒç´ â€œ%dâ€ã€‚\n", pos, pArr->pBase[pos - 1]);
+        printf_s("É¾³ı³É¹¦£ºÉ¾³ıÊı×éµÚ%d¸öÔªËØ¡°%d¡±¡£\n", pos, pArr->pBase[pos - 1]);
 
         for (int i = pos; i < pArr->cnt; i++)
         {
@@ -136,13 +136,13 @@ void sort_arr(PARR pArr)
 
 void show_arr(PARR pArr)
 {
-    if (arr_is_empty(pArr))          //æ•°ç»„ä¸ºç©º
+    if (arr_is_empty(pArr))          //Êı×éÎª¿Õ
     {
-        printf_s("æ•°ç»„ä¸ºç©ºï¼\n");
+        printf_s("Êı×éÎª¿Õ£¡\n");
     }
     else
     {
-        printf_s("æ•°ç»„ï¼š{ ");
+        printf_s("Êı×é£º{ ");
         for (int i = 0; i < pArr->cnt - 1; i++)
         {
             printf_s("%d,", pArr->pBase[i]);
@@ -176,18 +176,18 @@ bool find_val(PARR pArr, int val)
 
     for (int i = 0; i < pArr->cnt; i++)
     {
-        if(pArr->pBase[i] == val)          //å°†å…ƒç´ ä½ç½®è®°å½•åœ¨totalæ•°ç»„ä¸­
+        if(pArr->pBase[i] == val)          //½«ÔªËØÎ»ÖÃ¼ÇÂ¼ÔÚtotalÊı×éÖĞ
         {
             if (arr_is_full(&total))
             {
-                printf_s("æ•°ç»„ä¸ºæ»¡,è¿½åŠ æ•°æ®â€œ%dâ€å¤±è´¥ï¼\n", i);
+                printf_s("Êı×éÎªÂú,×·¼ÓÊı¾İ¡°%d¡±Ê§°Ü£¡\n", i);
 
                 return false;
             }
             else
             {
                 (&total)->pBase[(&total)->cnt] = i;
-                ((&total)->cnt)++;          //æœ‰æ•ˆé•¿åº¦è¿›ä¸€
+                ((&total)->cnt)++;          //ÓĞĞ§³¤¶È½øÒ»
 
             }
         }
@@ -195,16 +195,16 @@ bool find_val(PARR pArr, int val)
 
     if (arr_is_empty(&total))
     {
-        printf_s("åœ¨æ•°ç»„ä¸­æœªæŸ¥æ‰¾åˆ°å…ƒç´ â€œ%dâ€\n", val);
+        printf_s("ÔÚÊı×éÖĞÎ´²éÕÒµ½ÔªËØ¡°%d¡±\n", val);
 
         return false;
     }
     else
     {
-        printf_s("åœ¨æ•°ç»„ä¸­æŸ¥æ‰¾åˆ°%dä¸ªå…ƒç´ â€œ%dâ€ï¼Œä½ç½®ï¼š", (&total)->cnt, val);
+        printf_s("ÔÚÊı×éÖĞ²éÕÒµ½%d¸öÔªËØ¡°%d¡±£¬Î»ÖÃ£º", (&total)->cnt, val);
         for (int j = 0; j < (&total)->cnt - 1; j++)
         {
-            printf_s("pBase[%d]ï¼Œ", (&total)->pBase[j]);
+            printf_s("pBase[%d]£¬", (&total)->pBase[j]);
             
         }
         printf_s("pBase[%d]\n", (&total)->pBase[(&total)->cnt - 1]);

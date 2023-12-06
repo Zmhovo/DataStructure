@@ -1,14 +1,14 @@
-ï»¿#include "Queue.h"
+#include "Queue.h"
 
 void init_queue(PCIRCULARQUEUE pQueue)
 {
-	printf_s("æ–°å»ºé˜Ÿåˆ—çš„é•¿åº¦ï¼š");
+	printf_s("ÐÂ½¨¶ÓÁÐµÄ³¤¶È£º");
 	scanf_s("%d", &pQueue->len);
 
 	pQueue->pBase = (int*)malloc(sizeof(int) * pQueue->len);
 	if (NULL == pQueue->pBase)
 	{
-		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 		return;
 	}
 	else
@@ -47,7 +47,7 @@ bool push_queue(PCIRCULARQUEUE pQueue, int val)
 {
 	if (queue_is_full(pQueue))
 	{
-		printf_s("å…¥é˜Ÿå¤±è´¥ï¼šé˜Ÿä¸ºæ»¡ï¼\n");
+		printf_s("Èë¶ÓÊ§°Ü£º¶ÓÎªÂú£¡\n");
 		return false;
 	}
 	else
@@ -63,7 +63,7 @@ bool pop_queue(PCIRCULARQUEUE pQueue)
 {
 	if (queue_is_empty(pQueue))
 	{
-		printf_s("å‡ºé˜Ÿå¤±è´¥ï¼šé˜Ÿä¸ºç©ºï¼\n");
+		printf_s("³ö¶ÓÊ§°Ü£º¶ÓÎª¿Õ£¡\n");
 		return false;
 	}
 	else
@@ -80,7 +80,7 @@ void show_queue(PCIRCULARQUEUE pQueue)
 	{
 		if(temp == pQueue->front)
 		{
-			printf_s("é˜Ÿï¼š%d(é˜Ÿå¤´)", pQueue->pBase[temp]);
+			printf_s("¶Ó£º%d(¶ÓÍ·)", pQueue->pBase[temp]);
 		}
 		else
 		{

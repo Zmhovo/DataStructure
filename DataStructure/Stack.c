@@ -1,4 +1,4 @@
-ï»¿#include "Stack.h"
+#include "Stack.h"
 
 void init_stack(PSTACK pHead)
 {
@@ -6,7 +6,7 @@ void init_stack(PSTACK pHead)
 
 	if (NULL == pHead->pTop)
 	{
-		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 		exit(-1);
 	}
 	else
@@ -40,7 +40,7 @@ void show_stack(PSTACK pHead)
 	{
 		if (pTemp == pHead->pTop)
 		{
-			printf_s("æ ˆï¼š%d(æ ˆé¡¶)", pTemp->i_data);
+			printf_s("Õ»£º%d(Õ»¶¥)", pTemp->i_data);
 		}
 		else
 		{
@@ -57,7 +57,7 @@ bool push_stack(PSTACK pHead, int val)
 	PSTACKNODE pNew = (PSTACKNODE)malloc(sizeof(STACKNODE));
 	if (NULL == pNew)
 	{
-		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 		return false;
 	}
 	else
@@ -74,7 +74,7 @@ bool pop_stack(PSTACK pHead)
 {
 	if (stack_is_empty(pHead))
 	{
-		printf_s("å‡ºæ ˆå¤±è´¥ï¼šæ ˆä¸ºç©ºï¼\n");
+		printf_s("³öÕ»Ê§°Ü£ºÕ»Îª¿Õ£¡\n");
 		return false;
 	}
 	else

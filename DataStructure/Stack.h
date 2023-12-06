@@ -1,4 +1,4 @@
-Ôªø#ifndef __STACK_H__
+#ifndef __STACK_H__
 #define __STACK_H__
 
 #include <stdio.h>
@@ -18,13 +18,13 @@ typedef struct Stack
 	PSTACKNODE pBottom;
 }STACK, * PSTACK;
 
-void init_stack(PSTACK pHead);          //ÂàùÂßãÂåñ
+void init_stack(PSTACK pHead);          //≥ı ºªØ
 
-bool stack_is_empty(PSTACK pHead);          //‰∏∫Á©∫
+bool stack_is_empty(PSTACK pHead);          //Œ™ø’
 
-void show_stack(PSTACK pHead);          //ÊòæÁ§∫
-bool push_stack(PSTACK pHead, int val);          //ÂÖ•Ê†à
-bool pop_stack(PSTACK pHead);          //Âá∫Ê†à
-bool clear_stack(PSTACK pHead);          //Ê∏ÖÁ©∫Ê†à
+void show_stack(PSTACK pHead);          //œ‘ æ
+bool push_stack(PSTACK pHead, int val);          //»Î’ª
+bool pop_stack(PSTACK pHead);          //≥ˆ’ª
+bool clear_stack(PSTACK pHead);          //«Âø’’ª
 
 #endif //! __STACK_H__

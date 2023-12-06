@@ -1,35 +1,35 @@
-ï»¿#include "Link.h"
+#include "Link.h"
 
 PLINKNODE create_link()
 {
-	int len = 0;          //é“¾è¡¨é•¿åº¦
-	int val = 0;          //å­˜æ”¾ç»“ç‚¹ä¸´æ—¶æ•°æ®
+	int len = 0;          //Á´±í³¤¶È
+	int val = 0;          //´æ·Å½áµãÁÙÊ±Êý¾Ý
 
-	PLINKNODE pHead = (PLINKNODE)malloc(sizeof(LINKNODE));          //å¤´ç»“ç‚¹
-	PLINKNODE pTail = pHead;          //å°¾ç»“ç‚¹
+	PLINKNODE pHead = (PLINKNODE)malloc(sizeof(LINKNODE));          //Í·½áµã
+	PLINKNODE pTail = pHead;          //Î²½áµã
 
 	if (NULL == pHead)
 	{
-		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 		return 0;
 	}
 	else
 	{ 
 		pTail->pNext = NULL;
 
-		printf_s("æ–°å»ºé“¾è¡¨çš„é•¿åº¦ï¼š");
+		printf_s("ÐÂ½¨Á´±íµÄ³¤¶È£º");
 		scanf_s("%d", &len);
 
 		for (int i = 0; i < len; i++)
 		{
-			printf_s("è¯·è¾“å…¥ç¬¬%dä¸ªç»“ç‚¹çš„å€¼ï¼š", i + 1);
+			printf_s("ÇëÊäÈëµÚ%d¸ö½áµãµÄÖµ£º", i + 1);
 			scanf_s("%d", &val);
 
-			PLINKNODE pNew = (PLINKNODE)malloc(sizeof(LINKNODE));          //ä¸´æ—¶ç»“ç‚¹
+			PLINKNODE pNew = (PLINKNODE)malloc(sizeof(LINKNODE));          //ÁÙÊ±½áµã
 
 			if (NULL == pNew)
 			{
-				printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+				printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 				exit(-1);
 			}
 
@@ -49,7 +49,7 @@ bool link_is_empty(PLINKNODE pHead)
 {
 	if (NULL == pHead->pNext)
 	{
-		printf_s("é“¾è¡¨ä¸ºç©ºï¼");
+		printf_s("Á´±íÎª¿Õ£¡");
 		return true;
 	}
 	else
@@ -80,7 +80,7 @@ void show_link(PLINKNODE pHead)
 
 	if (pTemp == NULL)
 	{
-		printf_s("é“¾è¡¨ä¸ºç©ºï¼\n");
+		printf_s("Á´±íÎª¿Õ£¡\n");
 
 		return;
 	}
@@ -89,7 +89,7 @@ void show_link(PLINKNODE pHead)
 	{
 		if (pTemp == pHead->pNext)
 		{
-			printf_s("é“¾è¡¨ï¼š%d", pTemp->i_data);
+			printf_s("Á´±í£º%d", pTemp->i_data);
 			pTemp = pTemp->pNext;
 		}
 		else
@@ -109,7 +109,7 @@ bool insert_link(PLINKNODE pHead, int pos, int val)
 	int len = length_link(pHead);
 	if (pos > len + 1 || pos < 1)
 	{
-		printf_s("æ’å…¥å¤±è´¥ï¼šæ’å…¥ä½ç½®éžæ³•ï¼Œè¯·é‡æ–°è¾“å…¥1~%då†…æ•´æ•°ã€‚\n", len + 1);
+		printf_s("²åÈëÊ§°Ü£º²åÈëÎ»ÖÃ·Ç·¨£¬ÇëÖØÐÂÊäÈë1~%dÄÚÕûÊý¡£\n", len + 1);
 		return false;
 	}
 	else
@@ -117,7 +117,7 @@ bool insert_link(PLINKNODE pHead, int pos, int val)
 		PLINKNODE pTemp = (PLINKNODE)malloc(sizeof(PLINKNODE));
 		if (NULL == pTemp) 
 		{
-			printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
+			printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
 			return false;
 		}
 		else
@@ -144,14 +144,14 @@ bool delect_link(PLINKNODE pHead, int pos)
 {
 	if (link_is_empty(pHead))
 	{
-		printf_s("åˆ é™¤å¤±è´¥ï¼šé“¾è¡¨ä¸ºç©º\n");
+		printf_s("É¾³ýÊ§°Ü£ºÁ´±íÎª¿Õ\n");
 		return false;
 	}
 
 	int len = length_link(pHead);
 	if (pos > len || pos < 1)
 	{
-		printf_s("åˆ é™¤å¤±è´¥ï¼šåˆ é™¤ä½ç½®éžæ³•ï¼Œè¯·é‡æ–°è¾“å…¥1~%då†…æ•´æ•°ã€‚\n", len);
+		printf_s("É¾³ýÊ§°Ü£ºÉ¾³ýÎ»ÖÃ·Ç·¨£¬ÇëÖØÐÂÊäÈë1~%dÄÚÕûÊý¡£\n", len);
 		return false;
 	}
 	else
@@ -174,7 +174,7 @@ void sort_link(PLINKNODE pHead)
 {
 	if (link_is_empty(pHead))
 	{
-		printf_s("æ— æ³•è¿›è¡Œå‡åºæŽ’åºï¼\n");
+		printf_s("ÎÞ·¨½øÐÐÉýÐòÅÅÐò£¡\n");
 	}
 	else
 	{

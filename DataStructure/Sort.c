@@ -1,15 +1,15 @@
-#include "Sort.h"
+ï»¿#include "Sort.h"
 
 int* create_array(int* len)
 {
     int temp = 0;    
 inputArrayLen:
-    printf_s("ĞÂ½¨Êı×éµÄ³¤¶È:");
+    printf_s("æ–°å»ºæ•°ç»„çš„é•¿åº¦:");
     scanf_s("%d", len);
 
     if (*len < 1)
     {
-        printf_s("[ÊäÈë´íÎó]£ºÇëÊäÈë´óÓÚ0µÄÕûÊı£¡\n");
+        printf_s("[è¾“å…¥é”™è¯¯]ï¼šè¯·è¾“å…¥å¤§äº0çš„æ•´æ•°ï¼\n");
         goto inputArrayLen;
     }
 
@@ -17,19 +17,19 @@ inputArrayLen:
 
     if (NULL == array) 
     {
-        printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+        printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
         exit(-1);
     }
     else
     {
-        printf_s("ÇëÊäÈëĞÂ½¨Êı×é£º");
+        printf_s("è¯·è¾“å…¥æ–°å»ºæ•°ç»„ï¼š");
         for (int i = 0; i < (*len); i++)
         {
             scanf_s("%d", &temp);
             array[i] = temp;
         }
         
-        printf_s("Êı×é£º{ ");
+        printf_s("æ•°ç»„ï¼š{ ");
         for (int i = 0; i < (*len) - 1; i++)
         {
             printf_s("%d,", array[i]);
@@ -62,7 +62,7 @@ void bubble_sort(int* array, int* len)
         }
     }
 
-    printf_s("Ã°ÅİÅÅĞòºóÊı×é£º{ ");
+    printf_s("å†’æ³¡æ’åºåæ•°ç»„ï¼š{ ");
     for (int i = 0; i < (*len) - 1; i++)
     {
         printf_s("%d,", array[i]);
@@ -87,7 +87,7 @@ void selection_sort(int* array, int* len)
         swap(&array[min], &array[i]);
     }
 
-    printf_s("Ñ¡ÔñÅÅĞòºóÊı×é£º{ ");
+    printf_s("é€‰æ‹©æ’åºåæ•°ç»„ï¼š{ ");
     for (int i = 0; i < (*len) - 1; i++)
     {
         printf_s("%d,", array[i]);
@@ -112,7 +112,7 @@ void insertion_sort(int* array, int* len)
         array[j + 1] = key;
     }
 
-    printf_s("²åÈëÅÅĞòºóÊı×é£º{ ");
+    printf_s("æ’å…¥æ’åºåæ•°ç»„ï¼š{ ");
     for (int i = 0; i < (*len) - 1; i++)
     {
         printf_s("%d,", array[i]);
@@ -147,7 +147,7 @@ void shell_sort(int* array, int* len)
         }
     }
 
-    printf_s("Ï£¶ûÅÅĞòºóÊı×é£º{ ");
+    printf_s("å¸Œå°”æ’åºåæ•°ç»„ï¼š{ ");
     for (int i = 0; i < (*len) - 1; i++)
     {
         printf_s("%d,", array[i]);
@@ -163,15 +163,15 @@ void merge_sort(int* array, int* len)
     int* temp = (int*)malloc(sizeof(int) * (*len));
     if (NULL == array)
     {
-        printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+        printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
         exit(-1);
     }
     else
     {
-        _merge_sort(array, 0, (*len) - 1, temp);	//¹é²¢ÅÅĞòµÄ¹ı³Ì
+        _merge_sort(array, 0, (*len) - 1, temp);	//å½’å¹¶æ’åºçš„è¿‡ç¨‹
 
 
-        printf_s("Ï£¶ûÅÅĞòºóÊı×é£º{ ");
+        printf_s("å¸Œå°”æ’åºåæ•°ç»„ï¼š{ ");
         for (int i = 0; i < (*len) - 1; i++)
         {
             printf_s("%d,", array[i]);
@@ -187,22 +187,22 @@ void merge_sort(int* array, int* len)
 
 void _merge_sort(int* array, int left, int right, int* temp)
 {
-    if (left >= right)          //·Ö¸îÊı×éÖ»ÓĞÒ»¸öÔªËØÊ±Í£Ö¹µİ¹é
+    if (left >= right)          //åˆ†å‰²æ•°ç»„åªæœ‰ä¸€ä¸ªå…ƒç´ æ—¶åœæ­¢é€’å½’
     {
         return;
     }
     
     int mid = (left + right) / 2;
     
-    _merge_sort(array, left, mid, temp);		//·Ö¸î²¢ÅÅĞòÊı×é×ó°ë±ß
-    _merge_sort(array, mid + 1, right, temp);	//·Ö¸î²¢ÅÅĞòÊı×éÓÒ°ë±ß
+    _merge_sort(array, left, mid, temp);		//åˆ†å‰²å¹¶æ’åºæ•°ç»„å·¦åŠè¾¹
+    _merge_sort(array, mid + 1, right, temp);	//åˆ†å‰²å¹¶æ’åºæ•°ç»„å³åŠè¾¹
     
 
-    int begin1 = left, end1 = mid;			//Êı×é1µÄ×óÓÒÇø¼ä
-    int begin2 = mid + 1, end2 = right;		//Êı×é2µÄ×óÓÒÇø¼ä
+    int begin1 = left, end1 = mid;			//æ•°ç»„1çš„å·¦å³åŒºé—´
+    int begin2 = mid + 1, end2 = right;		//æ•°ç»„2çš„å·¦å³åŒºé—´
     int i = begin1;
     
-    //ÅÅĞòÁ½¸öÓĞĞòÊı×é
+    //æ’åºä¸¤ä¸ªæœ‰åºæ•°ç»„
     while (begin1 <= end1 && begin2 <= end2)
     {
         if (array[begin1] <= array[begin2])

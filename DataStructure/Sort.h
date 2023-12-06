@@ -1,18 +1,18 @@
-#ifndef __SORT_H__
+ï»¿#ifndef __SORT_H__
 #define __SORT_H__
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
 
-int* create_array(int* len);          //´´½¨Êı×é
-void swap(int* a, int* b);          //½»»»
+int* create_array(int* len);          //åˆ›å»ºæ•°ç»„
+void swap(int* a, int* b);          //äº¤æ¢
 
-void bubble_sort(int* array, int* len);          //Ã°ÅİÅÅĞò
-void selection_sort(int* array, int* len);          //Ñ¡ÔñÅÅĞò
-void insertion_sort(int* array, int* len);          //²åÈëÅÅĞò
-void shell_sort(int* array, int* len);          //Ï£¶ûÅÅĞò
+void bubble_sort(int* array, int* len);          //å†’æ³¡æ’åº
+void selection_sort(int* array, int* len);          //é€‰æ‹©æ’åº
+void insertion_sort(int* array, int* len);          //æ’å…¥æ’åº
+void shell_sort(int* array, int* len);          //å¸Œå°”æ’åº
 
-void merge_sort(int* array, int* len);          //¹é²¢ÅÅĞò£¨µİ¹é£©
+void merge_sort(int* array, int* len);          //å½’å¹¶æ’åºï¼ˆé€’å½’ï¼‰
 void _merge_sort(int* array, int left, int right, int* temp);
 #endif //! __SORT_H__

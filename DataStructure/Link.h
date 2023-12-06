@@ -1,4 +1,4 @@
-#ifndef __LINK_H__
+ï»¿#ifndef __LINK_H__
 #define __LINK_H__
 
 
@@ -7,22 +7,22 @@
 #include <stdbool.h>
 #include <malloc.h>
 
-typedef struct LinkNode          //½áµã
+typedef struct LinkNode          //ç»“ç‚¹
 {
-	int i_data;          //Êı¾İÓò
-	struct LinkNode* pNext;          //Ö¸ÕëÓò
+	int i_data;          //æ•°æ®åŸŸ
+	struct LinkNode* pNext;          //æŒ‡é’ˆåŸŸ
 
 }LINKNODE, * PLINKNODE;
 
-PLINKNODE create_link();          //´´½¨Á´±í
+PLINKNODE create_link();          //åˆ›å»ºé“¾è¡¨
 
-bool link_is_empty(PLINKNODE pHead);          //Îª¿Õ
-int length_link(PLINKNODE pHead);          //³¤¶È
+bool link_is_empty(PLINKNODE pHead);          //ä¸ºç©º
+int length_link(PLINKNODE pHead);          //é•¿åº¦
 
-void show_link(PLINKNODE pHead);          //ÏÔÊ¾
-bool insert_link(PLINKNODE pHead, int pos, int val);          //²åÈëvalµ½Á´±íµÚpos¸ö½áµã
-bool delect_link(PLINKNODE pHead, int pos);          //É¾³ıÁ´±íµÚpos¸ö½áµã
-void sort_link(PLINKNODE pHead);          //ÉıĞòÅÅĞò
+void show_link(PLINKNODE pHead);          //æ˜¾ç¤º
+bool insert_link(PLINKNODE pHead, int pos, int val);          //æ’å…¥valåˆ°é“¾è¡¨ç¬¬posä¸ªç»“ç‚¹
+bool delect_link(PLINKNODE pHead, int pos);          //åˆ é™¤é“¾è¡¨ç¬¬posä¸ªç»“ç‚¹
+void sort_link(PLINKNODE pHead);          //å‡åºæ’åº
 
 
 

@@ -1,4 +1,4 @@
-#ifndef __ARRAY_H__
+ï»¿#ifndef __ARRAY_H__
 #define __ARRAY_H__
 
 #include <stdio.h>
@@ -8,25 +8,25 @@
 
 typedef struct Arr
 {
-	int* pBase;          //µÚÒ»¸öÔªËØµØÖ·
-	int len;          //×î´ó³¤¶È
-	int cnt;          //ÓĞĞ§³¤¶È
+	int* pBase;          //ç¬¬ä¸€ä¸ªå…ƒç´ åœ°å€
+	int len;          //æœ€å¤§é•¿åº¦
+	int cnt;          //æœ‰æ•ˆé•¿åº¦
 
 }ARR, * PARR;
 
-void init_arr(PARR pArr, int length);        //³õÊ¼»¯
+void init_arr(PARR pArr, int length);        //åˆå§‹åŒ–
 
-bool append_arr(PARR pArr, int val);          //×·¼Óval
-bool insert_arr(PARR pArr, int pos, int val);          //²åÈëvalµ½Êı×éµÚpos¸öÎ»ÖÃ
-bool delect_arr(PARR pArr, int pos);          //É¾³ıÊı×éµÚpos¸öÎ»ÖÃÔªËØ
-bool arr_is_empty(PARR pArr);          //Îª¿Õ
-bool arr_is_full(PARR pArr);          //ÎªÂú
+bool append_arr(PARR pArr, int val);          //è¿½åŠ val
+bool insert_arr(PARR pArr, int pos, int val);          //æ’å…¥valåˆ°æ•°ç»„ç¬¬posä¸ªä½ç½®
+bool delect_arr(PARR pArr, int pos);          //åˆ é™¤æ•°ç»„ç¬¬posä¸ªä½ç½®å…ƒç´ 
+bool arr_is_empty(PARR pArr);          //ä¸ºç©º
+bool arr_is_full(PARR pArr);          //ä¸ºæ»¡
 
 
-void sort_arr(PARR pArr);          //ÉıĞòÅÅĞò
-void show_arr(PARR pArr);          //ÏÔÊ¾
-void inversion_arr(PARR pArr);          //µ¹ÖÃ
+void sort_arr(PARR pArr);          //å‡åºæ’åº
+void show_arr(PARR pArr);          //æ˜¾ç¤º
+void inversion_arr(PARR pArr);          //å€’ç½®
 
-bool find_val(PARR pArr, int val);          //²éÕÒÔªËØval
+bool find_val(PARR pArr, int val);          //æŸ¥æ‰¾å…ƒç´ val
 
 #endif

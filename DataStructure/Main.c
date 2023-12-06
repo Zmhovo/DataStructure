@@ -209,6 +209,7 @@ chooseMain:
 					merge_sort(array, &len);
 					break;
 				}
+
 				default:
 				{
 					printf_s("ÊäÈëĞòºÅ´íÎó£¡\n");

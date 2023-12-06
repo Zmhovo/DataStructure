@@ -4,7 +4,7 @@ void init_btree(PBTNODE BTree)
 {
 	if (NULL == BTree)
 	{
-		printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+		printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 		exit(-1);
 	}
 	else 
@@ -21,14 +21,15 @@ PBTNODE create_btree(PBTNODE BTree)
 {
 	if (BTree->i_data == NULL)
 	{
-		printf_s("ÇëÊäÈë¸ù½áµãµÄÊý¾Ý£º");
+
+		printf_s("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½");
 		scanf_s("%d", &BTree->i_data);
 	}
 
 	int temp = 0;
 
 chooseL:
-	printf_s("ÊÇ·ñ´´½¨×óº¢×Ó½áµã(1.ÊÇ£»2.·ñ)£º");
+	printf_s("æ˜¯å¦åˆ›å»ºå·¦å­©å­ç»“ç‚¹(1.æ˜¯ï¼›2.å¦)ï¼š");
 	scanf_s("%d", &temp);
 	switch (temp)
 	{
@@ -37,12 +38,12 @@ chooseL:
 		BTree->pLchild = (PBTNODE)malloc(sizeof(BTNODE));
 		if (NULL == BTree->pLchild)
 		{
-			printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+			printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 			exit(-1);
 		}
 		else
 		{
-			printf_s("ÇëÊäÈë×óº¢×Ó½áµãµÄÊý¾Ý£º");
+			printf_s("è¯·è¾“å…¥å·¦å­©å­ç»“ç‚¹çš„æ•°æ®ï¼š");
 			scanf_s("%d", &(BTree->pLchild->i_data));
 		}
 		break;
@@ -55,14 +56,14 @@ chooseL:
 	}
 	default:
 	{
-		printf_s("ÊäÈëÐòºÅ´íÎó£¡\n");
+		printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
 		goto chooseL;
 		break;
 	}
 	}
 
 chooseR:
-	printf_s("ÊÇ·ñ´´½¨ÓÒº¢×Ó½áµã(1.ÊÇ£»2.·ñ)£º");
+	printf_s("æ˜¯å¦åˆ›å»ºå³å­©å­ç»“ç‚¹(1.æ˜¯ï¼›2.å¦)ï¼š");
 	scanf_s("%d", &temp);
 	switch (temp)
 	{
@@ -71,12 +72,12 @@ chooseR:
 		BTree->pRchild = (PBTNODE)malloc(sizeof(BTNODE));
 		if (NULL == BTree->pRchild)
 		{
-			printf_s("¶¯Ì¬ÄÚ´æ·ÖÅäÊ§°Ü£¡\n");
+			printf_s("åŠ¨æ€å†…å­˜åˆ†é…å¤±è´¥ï¼\n");
 			exit(-1);
 		}
 		else
 		{
-			printf_s("ÇëÊäÈëÓÒº¢×Ó½áµãµÄÊý¾Ý£º");
+			printf_s("è¯·è¾“å…¥å³å­©å­ç»“ç‚¹çš„æ•°æ®ï¼š");
 			scanf_s("%d", &(BTree->pRchild->i_data));
 		}
 
@@ -90,7 +91,7 @@ chooseR:
 	}
 	default:
 	{
-		printf_s("ÊäÈëÐòºÅ´íÎó£¡\n");
+		printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
 		goto chooseR;
 		break;
 	}
@@ -98,12 +99,12 @@ chooseR:
 
 	if (BTree->pLchild != NULL) 
 	{
-		printf_s("×ªµ½½áµã¡°%d¡±µÄ×óº¢×Ó½áµã¡°%d¡±£º\n",BTree->i_data,BTree->pLchild->i_data);
+		printf_s("è½¬åˆ°ç»“ç‚¹â€œ%dâ€çš„å·¦å­©å­ç»“ç‚¹â€œ%dâ€ï¼š\n",BTree->i_data,BTree->pLchild->i_data);
 		create_btree(BTree->pLchild);
 	}
 	if (BTree->pRchild != NULL)
 	{
-		printf_s("×ªµ½½áµã¡°%d¡±µÄÓÒº¢×Ó½áµã¡°%d¡±£º\n", BTree->i_data, BTree->pRchild->i_data);
+		printf_s("è½¬åˆ°ç»“ç‚¹â€œ%dâ€çš„å³å­©å­ç»“ç‚¹â€œ%dâ€ï¼š\n", BTree->i_data, BTree->pRchild->i_data);
 		create_btree(BTree->pRchild);
 	}
 

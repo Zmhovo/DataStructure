@@ -12,13 +12,14 @@ typedef struct BTNode
 	struct BTNode* pRchild;
 }BTNODE, * PBTNODE;
 
-void init_btree(PBTNODE BTree);          //初始化
+void init_btree(PBTNODE BTree);          //鲁玫脢录禄炉
 
-PBTNODE create_btree(PBTNODE BTree);          //创建二叉树
+PBTNODE create_btree(PBTNODE BTree);          //麓麓陆篓露镁虏忙脢梅
 
-void preTraverse_btree(PBTNODE BTree);          //先序遍历
+void preTraverse_btree(PBTNODE BTree);          //脧脠脨貌卤茅脌煤
 
-void inTraverse_btree(PBTNODE BTree);          //中序遍历
+void inTraverse_btree(PBTNODE BTree);          //脰脨脨貌卤茅脌煤
 
-void postTraverse_btree(PBTNODE BTree);          //后序遍历
+void postTraverse_btree(PBTNODE BTree);          //潞贸脨貌卤茅脌煤
+
 #endif //! __TREE_H__

@@ -23,8 +23,14 @@ chooseMain:
 			ARR arr;
 			int len = 0;
 
-			printf_s("新建数组的长度:");
+		inputArrLen:
+			printf_s("�½�����ĳ���:");
 			scanf_s("%d", &len);
+			if (len < 1)
+			{
+				printf_s("[�������]�����������0��������\n");
+				goto inputArrLen;
+			}
 
 			init_arr(&arr, len);
 			show_arr(&arr);
@@ -61,6 +67,8 @@ chooseMain:
 
 			find_val(&arr, 1);
 			
+			free(arr.pBase);
+			arr.pBase = NULL;
 			break;
 		}
 
@@ -85,6 +93,9 @@ chooseMain:
 			delect_link(pHead, 1);
 
 			show_link(pHead);
+
+			free(pHead);
+			pHead = NULL;
 
 			break;
 		}
@@ -112,6 +123,8 @@ chooseMain:
 
 			pop_stack(&stack);
 
+			free(stack.pTop);
+			stack.pTop = NULL;
 			break;
 		}
 
@@ -133,6 +146,8 @@ chooseMain:
 
 			show_queue(&queue);
 
+			free(queue.pBase);
+			queue.pBase = NULL;
 			break;
 		}
 
@@ -154,6 +169,8 @@ chooseMain:
 			postTraverse_btree(BTree);
 			printf_s("\n");
 
+			free(BTree);
+			BTree = NULL;
 			break;
 		}
 
@@ -164,7 +181,7 @@ chooseMain:
 			int choose_sort = 0;
 		chooseSort:
 			
-			printf_s("1.冒泡排序；2.选择排序；3.插入排序；\n输入序号选择数据结构功能：");
+			printf_s("1.ð������2.ѡ������3.��������4.ϣ������5.�鲢����\n�������ѡ�����ݽṹ���ܣ�");
 			scanf_s("%d", &choose_sort);
 
 			switch (choose_sort)
@@ -184,15 +201,25 @@ chooseMain:
 					insertion_sort(array, &len);
 					break;
 				}
+				case 4:
+				{
+					shell_sort(array, &len);
+					break;
+				}
+				case 5:
+				{
+					merge_sort(array, &len);
+					break;
+				}
 				default:
 				{
 					printf_s("输入序号错误！\n");
 					goto chooseSort;
 					break;
 				}
+				free(array);
+				array = NULL;
 			}
-				
-
 			break;
 		}
 

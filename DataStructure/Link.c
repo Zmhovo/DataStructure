@@ -165,8 +165,6 @@ bool delect_link(PLINKNODE pHead, int pos)
 		PLINKNODE pJ = pI->pNext;
 
 		pI->pNext = pI->pNext->pNext;
-		//free(pJ);
-		//pJ = NULL;
 
 		return true;
 	}

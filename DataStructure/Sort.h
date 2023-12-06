@@ -11,5 +11,8 @@ void swap(int* a, int* b);          //Ωªªª
 void bubble_sort(int* array, int* len);          //√∞≈›≈≈–Ú
 void selection_sort(int* array, int* len);          //—°‘Ò≈≈–Ú
 void insertion_sort(int* array, int* len);          //≤Â»Î≈≈–Ú
+void shell_sort(int* array, int* len);          //œ£∂˚≈≈–Ú
 
+void merge_sort(int* array, int* len);          //πÈ≤¢≈≈–Ú£®µ›πÈ£©
+void _merge_sort(int* array, int left, int right, int* temp);
 #endif //! __SORT_H__

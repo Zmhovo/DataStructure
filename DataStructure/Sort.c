@@ -171,7 +171,7 @@ void merge_sort(int* array, int* len)
         _merge_sort(array, 0, (*len) - 1, temp);	//归并排序的过程
 
 
-        printf_s("希尔排序后数组：{ ");
+        printf_s("归并排序后数组：{ ");
         for (int i = 0; i < (*len) - 1; i++)
         {
             printf_s("%d,", array[i]);
@@ -236,5 +236,47 @@ void _merge_sort(int* array, int left, int right, int* temp)
     {
         array[i] = temp[i];
     }
+
+}
+
+void quick_sort(int* array, int* len)
+{
+    _quick_sort(array, 0, (*len) - 1);
+
+    printf_s("快速排序后数组：{ ");
+    for (int i = 0; i < (*len) - 1; i++)
+    {
+        printf_s("%d,", array[i]);
+    }
+    printf_s("%d }\n", array[(*len) - 1]);
+}
+
+void _quick_sort(int* array, int left, int right)
+{
+    if (left >= right)
+    {
+        return;
+    }
+
+    int start = left + 1, end = right;
+    while (start != end)
+    {
+        while(array[end] >= array[left] && start < end)
+        {
+            end--;
+        }
+        while(array[start] < array[left] && start < end)
+        {
+            start++;
+        }
+        swap(&array[start], &array[end]);
+    }
+    if (array[start] < array[left])
+    {
+        swap(&array[start], &array[left]);
+    }
+
+    _quick_sort(array, left, start - 1);
+    _quick_sort(array, end + 1, right);
 
 }

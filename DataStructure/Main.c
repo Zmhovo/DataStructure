@@ -211,6 +211,7 @@ chooseMain:
 					merge_sort(array, &len);
 					break;
 				}
+
 				default:
 				{
 					printf_s("输入序号错误！\n");

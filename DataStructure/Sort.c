@@ -261,7 +261,7 @@ void _quick_sort(int* array, int left, int right)
     int start = left + 1, end = right;
     while (start != end)
     {
-        while(array[end] >= array[left] && start < end)
+        while(array[end] >= array[left] && start < end)          //array[left]即本次排序基准值
         {
             end--;
         }
@@ -271,7 +271,7 @@ void _quick_sort(int* array, int left, int right)
         }
         swap(&array[start], &array[end]);
     }
-    if (array[start] < array[left])
+    if (array[start] < array[left])          //避免将原本正确的序列交换
     {
         swap(&array[start], &array[left]);
     }
@@ -279,4 +279,57 @@ void _quick_sort(int* array, int left, int right)
     _quick_sort(array, left, start - 1);
     _quick_sort(array, end + 1, right);
 
+}
+
+void heap_sort(int* array, int* len)
+{
+    int i = 0;
+
+    for (i = (*len) / 2 - 1; i >= 0; i--)          //(*len) / 2 - 1从最后一个非叶子结点开始
+    {
+        _heap_sort(array, i, (*len) - 1);
+    }
+
+    for (i = (*len) - 1; i > 0; i--)
+    {
+        swap(&array[0], &array[i]);          //将根结点(本次排序最值)与最后一个结点交换
+
+        _heap_sort(array, 0, i - 1);
+    }
+
+    printf_s("堆排序后数组：{ ");
+    for (int i = 0; i < (*len) - 1; i++)
+    {
+        printf_s("%d,", array[i]);
+    }
+    printf_s("%d }\n", array[(*len) - 1]);
+}
+
+void _heap_sort(int* array, int start, int end)
+{
+    int dad = start;
+    int son = dad * 2 + 1;          //i * 2 + 1为左孩子下标
+
+    while (son <= end)
+    {
+        if (son + 1 <= end && array[son] < array[son + 1])          //判断是否有右孩子，并比较两孩子大小
+        {
+            son++;
+        }
+
+        if (array[dad] > array[son])
+        {
+            return;
+        }
+        else
+        {
+            swap(&array[dad], &array[son]);
+
+            dad = son;          //与子孙比较
+            son = dad * 2 + 1;
+
+        }
+    }
+
+    return;
 }

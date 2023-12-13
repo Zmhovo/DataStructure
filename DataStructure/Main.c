@@ -179,7 +179,7 @@ chooseMain:
 			int choose_sort = 0;
 		chooseSort:
 			
-			printf_s("1.冒泡排序；2.选择排序；3.插入排序；4.希尔排序；5.归并排序；6.快速排序；\n输入序号选择数据结构功能：");
+			printf_s("1.冒泡排序；2.选择排序；3.插入排序；4.希尔排序；5.归并排序；6.快速排序；7.堆排序\n输入序号选择数据结构功能：");
 			scanf_s("%d", &choose_sort);
 
 			switch (choose_sort)
@@ -214,7 +214,11 @@ chooseMain:
 					quick_sort(array, &len);
 					break;
 				}
-
+				case 7:
+				{
+					heap_sort(array, &len);
+					break;
+				}
 				default:
 				{
 					printf_s("输入序号错误！\n");

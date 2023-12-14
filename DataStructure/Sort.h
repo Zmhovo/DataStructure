@@ -15,4 +15,10 @@ void shell_sort(int* array, int* len);          //Ï£¶ûÅÅĞò
 
 void merge_sort(int* array, int* len);          //¹é²¢ÅÅĞò£¨µİ¹é£©
 void _merge_sort(int* array, int left, int right, int* temp);
+
+void quick_sort(int* array, int* len);          //¿ìËÙÅÅĞò£¨µİ¹é£©
+void _quick_sort(int* array, int left, int right);
+
+void heap_sort(int* array, int* len);          //¶ÑÅÅĞò
+void _heap_sort(int* array, int start, int end);
 #endif //! __SORT_H__

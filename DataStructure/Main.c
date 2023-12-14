@@ -181,7 +181,8 @@ chooseMain:
 			int choose_sort = 0;
 		chooseSort:
 			
-			printf_s("1.ð������2.ѡ������3.��������4.ϣ������5.�鲢����\n�������ѡ�����ݽṹ���ܣ�");
+			printf_s("1.ð������2.ѡ������3.��������4.ϣ������5.�鲢����6.��������7.������\n�������ѡ�����ݽṹ���ܣ�");
+
 			scanf_s("%d", &choose_sort);
 
 			switch (choose_sort)
@@ -211,7 +212,16 @@ chooseMain:
 					merge_sort(array, &len);
 					break;
 				}
-
+				case 6:
+				{
+					quick_sort(array, &len);
+					break;
+				}
+				case 7:
+				{
+					heap_sort(array, &len);
+					break;
+				}
 				default:
 				{
 					printf_s("输入序号错误！\n");

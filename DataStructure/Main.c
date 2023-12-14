@@ -6,27 +6,29 @@
 #include "Tree.h"
 #include "Sort.h"
 
+
 int main()
 {
 	int function = 0;
-
+  
 chooseMain:
-	printf_s("1.Êı×é£»2.Á´±í£»3.Õ»£»4.¶Ó£»5.Ê÷£»6.ÅÅĞò\nÊäÈëĞòºÅÑ¡ÔñÊı¾İ½á¹¹¹¦ÄÜ£º");
+	printf_s("1.æ•°ç»„ï¼›2.é“¾è¡¨ï¼›3.æ ˆï¼›4.é˜Ÿï¼›5.æ ‘ï¼›6.æ’åº\nè¾“å…¥åºå·é€‰æ‹©æ•°æ®ç»“æ„åŠŸèƒ½ï¼š");
+
 	scanf_s("%d", &function);
 
 	switch (function)
 	{
-		case 1:          //1.Êı×é
+		case 1:          //1.æ•°ç»„
 		{
 			ARR arr;
 			int len = 0;
 
 		inputArrLen:
-			printf_s("ĞÂ½¨Êı×éµÄ³¤¶È:");
+			printf_s("ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½:");
 			scanf_s("%d", &len);
 			if (len < 1)
 			{
-				printf_s("[ÊäÈë´íÎó]£ºÇëÊäÈë´óÓÚ0µÄÕûÊı£¡\n");
+				printf_s("[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 				goto inputArrLen;
 			}
 
@@ -70,7 +72,7 @@ chooseMain:
 			break;
 		}
 
-		case 2:          //2.Á´±í
+		case 2:          //2.é“¾è¡¨
 		{
 			PLINKNODE pHead = create_link();
 			int len = 0;
@@ -78,7 +80,7 @@ chooseMain:
 			show_link(pHead);
 
 			len = length_link(pHead);
-			printf_s("Á´±í³¤¶È£º%d\n", len);
+			printf_s("é“¾è¡¨é•¿åº¦ï¼š%d\n", len);
 
 			sort_link(pHead);
 			
@@ -98,7 +100,7 @@ chooseMain:
 			break;
 		}
 
-		case 3:          //3.Õ»
+		case 3:          //3.æ ˆ
 		{
 			STACK stack;
 			init_stack(&stack);
@@ -126,7 +128,7 @@ chooseMain:
 			break;
 		}
 
-		case 4:          //4.¶Ó
+		case 4:          //4.é˜Ÿ
 		{
 			CIRCULARQUEUE queue;
 			init_queue(&queue);
@@ -155,15 +157,15 @@ chooseMain:
 			init_btree(BTree);
 			BTree = create_btree(BTree);
 
-			printf_s("ÏÈĞò±éÀú¶ş²æÊ÷£º");
+			printf_s("å…ˆåºéå†äºŒå‰æ ‘ï¼š");
 			preTraverse_btree(BTree);
 			printf_s("\n");
 
-			printf_s("ÖĞĞò±éÀú¶ş²æÊ÷£º");
+			printf_s("ä¸­åºéå†äºŒå‰æ ‘ï¼š");
 			inTraverse_btree(BTree);
 			printf_s("\n");
 
-			printf_s("ºóĞò±éÀú¶ş²æÊ÷£º");
+			printf_s("ååºéå†äºŒå‰æ ‘ï¼š");
 			postTraverse_btree(BTree);
 			printf_s("\n");
 
@@ -179,7 +181,8 @@ chooseMain:
 			int choose_sort = 0;
 		chooseSort:
 			
-			printf_s("1.Ã°ÅİÅÅĞò£»2.Ñ¡ÔñÅÅĞò£»3.²åÈëÅÅĞò£»4.Ï£¶ûÅÅĞò£»5.¹é²¢ÅÅĞò£»6.¿ìËÙÅÅĞò£»7.¶ÑÅÅĞò\nÊäÈëĞòºÅÑ¡ÔñÊı¾İ½á¹¹¹¦ÄÜ£º");
+			printf_s("1.Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2.Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4.Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5.ï¿½é²¢ï¿½ï¿½ï¿½ï¿½6.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½İ½á¹¹ï¿½ï¿½ï¿½Ü£ï¿½");
+
 			scanf_s("%d", &choose_sort);
 
 			switch (choose_sort)
@@ -221,7 +224,7 @@ chooseMain:
 				}
 				default:
 				{
-					printf_s("ÊäÈëĞòºÅ´íÎó£¡\n");
+					printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
 					goto chooseSort;
 					break;
 				}
@@ -233,7 +236,7 @@ chooseMain:
 
 		default:
 		{
-			printf_s("ÊäÈëĞòºÅ´íÎó£¡\n");
+			printf_s("è¾“å…¥åºå·é”™è¯¯ï¼\n");
 			goto chooseMain;
 			break; 
 		}
